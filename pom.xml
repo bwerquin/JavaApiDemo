@@ -4,7 +4,7 @@
 	<groupId>fr.insee.demo</groupId>
 	<artifactId>javaApi</artifactId>
 	<packaging>war</packaging>
-	<version>0.2</version>
+	<version>0.1</version>
 	<name>JavaApiDemo</name>
 	<description>Java Api (Rest) for CI demo with Travis</description>
 	<url>http://www.insee.fr</url>

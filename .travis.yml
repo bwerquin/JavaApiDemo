@@ -8,8 +8,8 @@ env:
 - DOCKER_COMPOSE_VERSION=1.9.0
 
 install:
-- mvn clean install -DskipTests -Dfinal.war.name=javaApi
-- cp target/javaApi.war docker/tomcat/
+- mvn clean install -DskipTests
+- cp target/javaApi-01.war docker/tomcat/
 before_script:
 - sudo sysctl -w vm.max_map_count=262144
 - pushd docker
