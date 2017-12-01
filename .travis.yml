@@ -8,13 +8,15 @@ env:
 - DOCKER_COMPOSE_VERSION=1.9.0
 
 install:
-- mvn clean install -DskipTests
-- cp target/javaApi-01.war docker/tomcat/
+- bash scripts/build.sh javaApi
+- cp target/javaApi.war docker/tomcat/
+
 before_script:
 - sudo sysctl -w vm.max_map_count=262144
 - pushd docker
 - docker-compose up -d --build
 - popd
+
 script:
 - mvn test
 - mvn failsafe:integration-test
