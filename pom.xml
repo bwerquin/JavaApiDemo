@@ -17,6 +17,7 @@
 	</licenses>
 	
 	 <properties>
+	  	<final.war.name>javaApi</final.war.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>2.19</jersey.version>
         <spring.version>4.3.9.RELEASE</spring.version>
@@ -89,9 +90,18 @@
             <scope>test</scope>
         </dependency>
 	</dependencies>
-	    <build>
+	<build>
+		<finalName>${final.war.name}</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
+         	<plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -100,13 +110,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webXml>WebContent\WEB-INF\web.xml</webXml>
-                </configuration>
-            </plugin>
+            
              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
